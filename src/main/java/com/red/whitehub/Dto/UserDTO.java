@@ -9,7 +9,9 @@ import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
  
 
 /**
@@ -18,9 +20,9 @@ import java.time.LocalDateTime;
  */
 public class UserDTO {
     
- private User user;
+
    
- private Long Id;
+ private Long id;
  
  @NotBlank( message = "name not empty")
  @Size(max = 100)
@@ -44,15 +46,15 @@ public class UserDTO {
  private String password;
  
  @NotNull( message = "compulsory age" )
- private LocalDateTime birthdate;
+ private LocalDate birthdate; 
  
  public UserDTO() {
-    this.user = new User(); // inicializa para que los setters funcionen
+    
 }
  
-    public UserDTO( Long Id, String name, String lastName, String userName, String email, String password, LocalDateTime birthdate ){
+    public UserDTO( Long id, String name, String lastName, String userName, String email, String password, LocalDate birthdate ){
  
-    this.Id = Id;
+    this.id = id; 
     this.name = name;
     this.lastName = lastName;
     this.userName = userName;
@@ -62,12 +64,65 @@ public class UserDTO {
   
     }
     
+    
+//----------------------------------------------------------------------------------------- Setting ------------------------------------------------------------------------------------------//    
+    
+    
  public void setName( String name)  {
-    this.user.setName(name);
+    this.name = name;
  }
  
   public void setLastName( String lastName)  {
-    this.user.setLastName(lastName);
+    this.lastName = lastName;
  }
-     
+  
+  public void setUserName( String userName)  {
+    this.userName = userName;
+ }
+   
+  public void setEmail( String Email)  {
+    this.email = Email;
+ }
+  
+  public void setPassword( String password)  {   
+    this.password = password;
+ }
+ 
+  public void setBirthdate( LocalDate birthdate)  {
+    this.birthdate = birthdate;
+ }
+  
+ 
+ //----------------------------------------------------------------------------------------- Getting ------------------------------------------------------------------------------------------//
+  
+
+public Long getId( )  {
+    return this.id;
+ }  
+  
+ public String getName( )  {
+    return this.name;
+ }
+ 
+  public String getLastName( )  {
+    return this.lastName;
+ }
+  
+  public String getUserName( )  {
+    return this.userName;
+ }
+   
+  public String getEmail( )  {
+    return this.email;
+ }
+  
+  public String getPassword( )  {
+    return this.password;
+ }
+ 
+  public LocalDate getBirthdate( )  {
+    return this.birthdate;
+ }  
+  
+  
 }
