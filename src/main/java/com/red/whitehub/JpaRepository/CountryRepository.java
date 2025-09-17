@@ -4,7 +4,7 @@
  */
 package com.red.whitehub.JpaRepository;
 
-import com.red.whitehub.Entity.User;
+import com.red.whitehub.Entity.Country;
 import java.util.Optional;
 import org.springframework.data.jpa.repository.JpaRepository;
 
@@ -12,13 +12,8 @@ import org.springframework.data.jpa.repository.JpaRepository;
  *
  * @author aleja
  */
-public interface UserRepositoryUser extends JpaRepository<User, Long> {
+public interface CountryRepository extends JpaRepository<Country, Long>{
     
-    Optional<User> findByUserName(String userName);
-    boolean existsByUserName(String userName);
-    
-    Optional<User> findByEmail( String email );
-            
-    Optional<User> findByUserNameAndEmail( String userName, String email );             
+    Optional<Country> foundByCountry(String country);
     
 }

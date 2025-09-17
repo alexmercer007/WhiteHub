@@ -6,6 +6,8 @@ import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
@@ -38,7 +40,14 @@ public class User {
  @Column( name = "birthdate")
  private LocalDate birthdate;
  
- @Column( name = "birthdate")
+ @Column( name = "phoneNumber")
+ private String phoneNumber;
+ 
+ @ManyToOne
+ @JoinColumn( name = "country_id") 
+ private Country country;
+ 
+ @Column( name = "createdAt")
  private LocalDateTime createdAt;
  
 @Column( name = "updatedAt")
@@ -86,6 +95,14 @@ public Long getId(){
  
  public LocalDate getbirthdate(){
      return this.birthdate;
+ }
+ 
+ public String getPhoneNumber(){
+     return this.phoneNumber;
+ }
+ 
+ public Country getCountry(){
+     return this.country;
  }
  
  public LocalDateTime getCreatedAt(){
@@ -141,6 +158,14 @@ public Long getId(){
  
  public void setbirthdate( LocalDate birthdate ){
       this.birthdate = birthdate;
+ }
+ 
+  public void setPhoneNumber( String phoneNumber ){
+     this.phoneNumber = phoneNumber;
+ }
+ 
+ public void setCountry( Country country){
+      this.country = country;
  }
  
   public void setCreatedAt( LocalDateTime createdAt ){

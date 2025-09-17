@@ -7,7 +7,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class WhitehubApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(WhitehubApplication.class, args);
+		SpringApplication.run(WhitehubApplication.class, args); 
 	}
 
 }
