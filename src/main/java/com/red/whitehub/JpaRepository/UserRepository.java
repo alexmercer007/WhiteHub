@@ -7,11 +7,13 @@ package com.red.whitehub.JpaRepository;
 import com.red.whitehub.Entity.User;
 import java.util.Optional;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
 
 /**
  *
  * @author aleja
  */
+@Repository
 public interface UserRepository extends JpaRepository<User, Long> {
     
     Optional<User> findByUserName(String userName);

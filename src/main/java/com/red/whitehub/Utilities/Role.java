@@ -8,7 +8,11 @@ package com.red.whitehub.Utilities;
  *
  * @author aleja
  */
-public class Rol {
+public class Role {  
+    
+    public Role(){
+        
+    }
     
     // Usuario
     

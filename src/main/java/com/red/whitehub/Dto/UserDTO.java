@@ -48,22 +48,25 @@ public class UserDTO {
  @NotNull( message = "compulsory age" )
  private LocalDate birthdate; 
  
+ @NotBlank( message = "mandatory telephone number")
+ @Size( max = 50 )
+ private String phoneNumber;
+ 
  private String role;
  
  public UserDTO() {
     
 }
  
-    public UserDTO( Long id, String name, String lastName, String userName, String email, String password, LocalDate birthdate ){
+    public UserDTO( String name, String lastName, String userName, String email, String password, LocalDate birthdate, String phoneNumber ){
  
-    this.id = id; 
-    this.name = name;
+    this.name = name; 
     this.lastName = lastName;
     this.userName = userName;
     this.email = email;
     this.password = password;
     this.birthdate = birthdate;
-  
+    this.phoneNumber = phoneNumber;
     }
     
     
@@ -92,6 +95,10 @@ public class UserDTO {
  
   public void setBirthdate( LocalDate birthdate)  {
     this.birthdate = birthdate;
+ }
+  
+  public void setPhoneNumber( String phoneNumber)  {
+    this.phoneNumber = phoneNumber;
  }
   
   public void setRole( String role) {
@@ -129,8 +136,12 @@ public Long getId( )  {
   public LocalDate getBirthdate( )  {
     return this.birthdate;
  }  
+  
+  public String getPhoneNumber()  {
+    return this.phoneNumber;
+ }
 
-    public String getRole() {
+  public String getRole() {
       return this.role;
     }
 

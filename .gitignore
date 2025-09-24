@@ -9,5 +9,5 @@ HELP.md
 .gradle/
 gradle/
 build/
-
+gradle/wrapper
 
