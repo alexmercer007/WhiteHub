@@ -48,6 +48,8 @@ public class UserDTO {
  @NotNull( message = "compulsory age" )
  private LocalDate birthdate; 
  
+ private String role;
+ 
  public UserDTO() {
     
 }
@@ -92,6 +94,10 @@ public class UserDTO {
     this.birthdate = birthdate;
  }
   
+  public void setRole( String role) {
+      this.role = role;
+    }
+  
  
  //----------------------------------------------------------------------------------------- Getting ------------------------------------------------------------------------------------------//
   
@@ -123,6 +129,12 @@ public Long getId( )  {
   public LocalDate getBirthdate( )  {
     return this.birthdate;
  }  
+
+    public String getRole() {
+      return this.role;
+    }
+
+
   
   
 }

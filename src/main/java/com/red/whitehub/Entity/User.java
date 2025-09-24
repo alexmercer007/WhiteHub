@@ -2,6 +2,7 @@
 
 package com.red.whitehub.Entity;
 
+import com.red.whitehub.Dto.UserDTO;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -17,6 +18,7 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 @Entity
 @Table(name ="User")
 public class User {
+    
  
  @Id 
  @GeneratedValue( strategy = GenerationType.AUTO )
@@ -53,18 +55,27 @@ public class User {
 @Column( name = "updatedAt")
 private LocalDateTime updatedAt;
 
-@Column( name = "banned")
-private boolean banned;
+@Column( name = "banned", nullable = false)
+private boolean banned = false;
 
 @Column( name = "bannedAt")
 private LocalDateTime bannedAt;
+
+@Column( name = "temporary_ban", nullable = false)
+private boolean temporaryBan = false;
+
+@Column( name = "temporary_ban_at")
+private LocalDateTime temporaryBanAt;
 
 @Column( name = "deleted")
 private boolean deleted;
 
 @Column( name = "deletedAt")
 private LocalDateTime deletedAt;
- 
+
+@Column( name = "role")
+private String role;
+
  
 //----------------------------------------------------------------------------- Getters ------------------------------------------------------------------------------------------// 
  
@@ -113,12 +124,20 @@ public Long getId(){
      return this.updatedAt; 
  }
 
- public Boolean getBanned(){
+ public Boolean isBanned(){
      return this.banned; 
  }
 
- public LocalDateTime getBannedAt(){
+ public LocalDateTime isBannedAt(){
      return this.bannedAt;
+ }
+ 
+ public Boolean isTemporaryBan(){
+     return this.temporaryBan; 
+ }
+
+ public LocalDateTime isTemporaryBanAt(){
+     return this.temporaryBanAt;
  }
 
  public Boolean getDeleted(){
@@ -129,6 +148,9 @@ public Long getId(){
      return this.deletedAt; 
  } 
  
+ public String getRole(){
+     return this.role; 
+ } 
  
  
 //----------------------------------------------------------------------------- Setters------------------------------------------------------------------------------------------// 
@@ -188,10 +210,13 @@ public Long getId(){
      this.deleted = deleted;
  }
 
- public void getDeletedAt( LocalDateTime deletedAt ){
+ public void setDeletedAt( LocalDateTime deletedAt ){
      this.deletedAt = deletedAt; 
  } 
  
+ public void setRole( String role){
+     this.role = role; 
+ } 
 
  
 }

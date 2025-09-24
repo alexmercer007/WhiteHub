@@ -12,7 +12,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
  *
  * @author aleja
  */
-public interface UserRepositoryUser extends JpaRepository<User, Long> {
+public interface UserRepository extends JpaRepository<User, Long> {
     
     Optional<User> findByUserName(String userName);
     boolean existsByUserName(String userName);
